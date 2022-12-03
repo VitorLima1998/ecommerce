@@ -13,6 +13,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 const MODULES = [
   CommonModule,
@@ -29,6 +30,7 @@ const MODULES = [
   DropdownModule,
   FileUploadModule,
   HttpClientModule,
+  InputNumberModule,
 ];
 
 @NgModule({

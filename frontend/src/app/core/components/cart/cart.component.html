@@ -22,6 +22,19 @@
           <tr>
             <td>{{ category.id }}</td>
             <td>{{ category.name }}</td>
+            <td>
+              <p-inputNumber
+                [showButtons]="true"
+                buttonLayout="horizontal"
+                spinnerMode="horizontal"
+                inputId="horizontal"
+                decrementButtonClass="p-button-secondary"
+                incrementButtonClass="p-button-secondary"
+                incrementButtonIcon="pi pi-plus"
+                decrementButtonIcon="pi pi-minus"
+              >
+              </p-inputNumber>
+            </td>
           </tr>
         </ng-template>
       </p-table>
