@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  gap: 1rem;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mysql:
+    image: mysql
+    container_name: ecommerce
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

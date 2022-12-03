@@ -1,0 +1,34 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="categoryName">Name:</label>
+      <input
+        type="text"
+        pInputText
+        class="form-control"
+        id="categoryName"
+        placeholder="Enter category's name"
+        [formControl]="name"
+      />
+    </div>
+
+    <div class="btn">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        class="p-button-rounded p-button-success p-button-text"
+        (click)="onSubmit()"
+      ></button>
+
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-times"
+        class="p-button-rounded p-button-danger p-button-text"
+      ></button>
+    </div>
+  </form>
+</div>
