@@ -3,11 +3,13 @@ import { ProductsComponent } from './core/components/products/products.component
 import { CategoriesComponent } from './core/components/categories/categories.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartComponent } from './core/components/cart/cart.component';
 
 const routes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'catDialog', component: CategoryInsertDialogComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'cart', component: CartComponent },
   { path: '', redirectTo: '/products', pathMatch: 'full' },
 ];
 

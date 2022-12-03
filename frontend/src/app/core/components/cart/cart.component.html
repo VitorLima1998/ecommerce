@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="cart">
+    <p-panel>
+      <ng-template pTemplate="header">
+        <h2>YOUR CART</h2>
+      </ng-template>
+
+      <p-table [value]="categories">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <!--Product (image + name)-->
+            <th>Price</th>
+            <!--Product (price)-->
+            <th>Quantity</th>
+            <!--Product (quantity)-->
+            <th>Total</th>
+            <!--Product (total)-->
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-category>
+          <tr>
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+  <div class="summary">
+    <p-panel>
+      <ng-template pTemplate="header">
+        <th>ORDER SUMMARY</th>
+      </ng-template>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    </p-panel>
+
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Checkout"
+      class="p-button-outlined p-button-success"
+    ></button>
+  </div>
+</div>
