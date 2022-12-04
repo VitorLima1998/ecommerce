@@ -19,3 +19,8 @@
 td {
   border: solid 1px white;
 }
+
+.inputNumber {
+  border: solid 1px white;
+  min-width: 50%;
+}

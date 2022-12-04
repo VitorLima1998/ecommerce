@@ -8,7 +8,7 @@
       <p-table [value]="categories">
         <ng-template pTemplate="header">
           <tr>
-            <th>ID</th>
+            <th>Product</th>
             <!--Product (image + name)-->
             <th>Price</th>
             <!--Product (price)-->
@@ -25,12 +25,9 @@
             <td>
               <p-inputNumber
                 [showButtons]="true"
-                buttonLayout="horizontal"
-                spinnerMode="horizontal"
-                decrementButtonClass="p-button-secondary"
-                incrementButtonClass="p-button-secondary"
-                incrementButtonIcon="pi pi-plus"
-                decrementButtonIcon="pi pi-minus"
+                inputId="minmax-buttons"
+                [min]="1"
+                [max]="100"
               >
               </p-inputNumber>
             </td>

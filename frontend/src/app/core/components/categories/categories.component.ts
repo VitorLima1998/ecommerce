@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { Category } from '../../model/category';
+import { CategoryService } from '../../services/category.service';
+import { CategoryInsertDialogComponent } from '../category-insert-dialog/category-insert-dialog.component';
 import {
   DialogService,
   DynamicDialogConfig,
   DynamicDialogRef,
 } from 'primeng/dynamicdialog';
-import { Category } from '../../model/category';
-import { CategoryService } from '../../services/category.service';
-import { CategoryInsertDialogComponent } from '../category-insert-dialog/category-insert-dialog.component';
-
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
