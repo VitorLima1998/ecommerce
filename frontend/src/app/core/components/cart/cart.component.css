@@ -15,3 +15,7 @@
   gap: 1rem;
   width: 25rem;
 }
+
+td {
+  border: solid 1px white;
+}
