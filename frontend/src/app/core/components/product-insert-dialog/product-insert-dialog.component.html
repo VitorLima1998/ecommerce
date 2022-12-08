@@ -1,6 +1,6 @@
 <p-toast></p-toast>
 <div class="container">
-  <form>
+  <form [formGroup]="formProducts" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="categoryName">Category</label>
       <p-dropdown
@@ -52,7 +52,9 @@
         name="demo[]"
         url="./upload.php"
         (onUpload)="onUpload($event)"
+        [multiple]="true"
         accept="image/*"
+        [maxFileSize]="1000000"
       >
         <ng-template pTemplate="content">
           <ul *ngIf="uploadedFiles.length">

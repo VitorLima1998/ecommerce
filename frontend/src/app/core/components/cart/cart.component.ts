@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { Category } from '../../model/category';
-import { CategoryService } from '../../services/category.service';
+import { Product } from '../../model/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,29 +10,29 @@ import { CategoryService } from '../../services/category.service';
   providers: [MessageService],
 })
 export class CartComponent {
-  categories!: Category[];
+  products!: Product[];
 
   constructor(
-    private categoryService: CategoryService,
+    private productService: ProductService,
     private messageService: MessageService
   ) {}
 
   //Inicializa a lista de categories
   ngOnInit() {
-    console.log(this.categoryService.getCategories());
-    this.getCategories();
+    console.log(this.productService.getProducts());
+    this.getProducts();
   }
 
-  getCategories() {
-    this.categoryService.getCategories().subscribe({
+  getProducts() {
+    this.productService.getProducts().subscribe({
       next: (data) => {
-        this.categories = data;
+        this.products = data;
       },
       error: (error) => {
         console.error(error);
       },
     });
 
-    this.getCategories();
+    // this.getCategories();
   }
 }

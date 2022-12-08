@@ -24,7 +24,9 @@ export class ProductsComponent implements OnInit {
   products!: Product[];
 
   // Inicializa a lista de products
-  ngOnInit() {}
+  ngOnInit() {
+    this.getProducts();
+  }
 
   constructor(
     public dialogService: DialogService,
