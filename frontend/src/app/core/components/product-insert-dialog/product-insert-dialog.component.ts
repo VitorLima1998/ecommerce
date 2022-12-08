@@ -12,11 +12,14 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './product-insert-dialog.component.html',
   styleUrls: ['./product-insert-dialog.component.css'],
 })
-export class ProductInsertDialogComponent implements OnInit {
-  uploadedFiles: any[] = [];
-  categories!: Category[];
-  product!: Product;
-  selectedProduct!: Product;
+export class ProductInsertDialogComponent {
+  formProducts = new FormGroup({
+    name: new FormControl(''),
+    description: new FormControl(''),
+    price: new FormControl(''),
+    category: new FormControl(''),
+    image: new FormControl(''),
+  });
 
   constructor(
     private productService: ProductService,
@@ -28,6 +31,11 @@ export class ProductInsertDialogComponent implements OnInit {
     // this.product = new Product(); -> para não inicializar undefined
   }
 
+  uploadedFiles: any[] = [];
+  categories!: Category[];
+  product!: Product;
+  selectedProduct!: Product;
+
   ngOnInit() {
     this.categoryService.getCategories().subscribe({
       next: (categories) => {
@@ -35,14 +43,6 @@ export class ProductInsertDialogComponent implements OnInit {
       },
     });
   }
-
-  products = new FormGroup({
-    name: new FormControl(''),
-    description: new FormControl(''),
-    price: new FormControl(''),
-    category: new FormControl(''),
-    image: new FormControl(''),
-  });
 
   removeProduct(id: string) {
     this.productService.removeProduct(id);
@@ -60,13 +60,15 @@ export class ProductInsertDialogComponent implements OnInit {
     });
   }
 
-  // onSubmit() {
-  //   this.product = new Product(
-  //     this.name,
-  //     this.description,
-  //     this.price,
-  //     this.category,
-  //     this.image
-  //   );
-  // }
+  onSubmit() {
+    // this.product = new Product(
+    //   this.name,
+    //   this.description,
+    //   this.price,
+    //   this.category,
+    //   this.image
+    // );
+    console.log('teste..');
+    this.ref.close(this.product);
+  }
 }

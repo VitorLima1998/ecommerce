@@ -84,7 +84,7 @@ export class CategoriesComponent implements OnInit {
       },
     });
 
-    this.getCategories();
+    // this.getCategories();
   }
 
   // UPDATE CATEGORY

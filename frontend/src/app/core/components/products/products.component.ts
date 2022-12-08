@@ -82,7 +82,7 @@ export class ProductsComponent implements OnInit {
       },
     });
 
-    this.getProducts();
+    // this.getProducts();
   }
 
   // UPDATE PRODUCT
