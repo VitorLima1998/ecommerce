@@ -24,9 +24,9 @@ export class ProductInsertDialogComponent {
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
+    private messageService: MessageService,
     public ref: DynamicDialogRef,
-    public config: DynamicDialogConfig,
-    private messageService: MessageService
+    public config: DynamicDialogConfig
   ) {
     // this.product = new Product(); -> para não inicializar undefined
   }
