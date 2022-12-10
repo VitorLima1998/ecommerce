@@ -6,9 +6,12 @@ import {
   Param,
   Delete,
   Put,
+  UseInterceptors,
+  UploadedFile,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
 // import { UpdateProductDto } from './dto/update-product.dto';
 
 @Controller('api/product')
@@ -38,5 +41,12 @@ export class ProductController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.productService.remove(id);
+  }
+
+  @Post('file')
+  @UseInterceptors(FileInterceptor('file'))
+  handleUpload(@UploadedFile() file: Express.Multer.File) {
+    console.log('file', file);
+    return 'File upload API';
   }
 }

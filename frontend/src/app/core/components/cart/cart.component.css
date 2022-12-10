@@ -14,6 +14,7 @@
   flex-direction: column;
   align-items: space-between;
   width: 25rem;
+  gap: 1rem;
 }
 
 td {
