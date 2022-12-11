@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit {
     private messageService: MessageService
   ) {}
 
-  // Open Dialog -> chama o Component ProductInsertDialog
+  // Open Dialog -> chama o Component ProductInsertDialog onde o usuário irá adicionar um dado
   show() {
     const ref = this.dialogService.open(ProductInsertDialogComponent, {
       header: 'Add Product',
@@ -76,8 +76,8 @@ export class ProductsComponent implements OnInit {
   // LIST PRODUCT
   getProducts() {
     this.productService.getProducts().subscribe({
-      next: (data) => {
-        this.products = data;
+      next: (prod) => {
+        this.products = prod;
       },
       error: () => {
         console.error();
@@ -89,8 +89,4 @@ export class ProductsComponent implements OnInit {
 
   // UPDATE PRODUCT
   updateProduct(prod: Product) {}
-
-  removeData() {
-    this.products.pop();
-  }
 }
