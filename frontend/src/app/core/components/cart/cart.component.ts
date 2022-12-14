@@ -12,6 +12,8 @@ import { ProductService } from '../../services/product.service';
 export class CartComponent {
   products!: Product[];
 
+  cart: any;
+
   constructor(
     private productService: ProductService,
     private messageService: MessageService
@@ -20,7 +22,13 @@ export class CartComponent {
   //Inicializa a lista de categories
   ngOnInit() {
     console.log(this.productService.getProducts());
-    this.getProducts();
+    // this.getProducts();
+
+    this.cart = localStorage.getItem('prod');
+
+    this.products = JSON.parse(this.cart);
+
+    console.log(this.cart);
   }
 
   getProducts() {

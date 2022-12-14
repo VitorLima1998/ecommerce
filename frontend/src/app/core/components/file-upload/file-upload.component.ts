@@ -1,5 +1,5 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FileUploadService } from '../../services/file-upload.service';
 
@@ -8,7 +8,7 @@ import { FileUploadService } from '../../services/file-upload.service';
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.css'],
 })
-export class FileUploadComponent {
+export class FileUploadComponent implements OnInit {
   selectedFiles?: FileList;
   currentFile?: File;
   progress = 0;
@@ -36,6 +36,9 @@ export class FileUploadComponent {
         this.currentFile = file;
 
         this.uploadService.upload(this.currentFile).subscribe({
+          // next: (req) => {
+          //   console.log(req);
+          // },
           next: (event: any) => {
             if (event.type === HttpEventType.UploadProgress) {
               this.progress = Math.round((100 * event.loaded) / event.total);

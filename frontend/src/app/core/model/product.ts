@@ -6,14 +6,14 @@ export class Product {
   description?: string;
   price?: number;
   category?: Category;
-  image?: File;
+  image?: string;
 
   constructor(
     name: string,
     description: string,
     price: number,
     category: Category,
-    image: File
+    image: string
   ) {
     this.name = name;
     this.description = description;

@@ -10,13 +10,16 @@ import { ProductInsertDialogComponent } from './product-insert-dialog/product-in
 import { CategoryInsertDialogComponent } from './category-insert-dialog/category-insert-dialog.component';
 import { CartComponent } from './cart/cart.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { ShopComponent } from './shop/shop.component';
 
 const COMPONENTS = [
+  FileUploadComponent,
   CategoriesComponent,
   ProductsComponent,
   ProductInsertDialogComponent,
   CategoryInsertDialogComponent,
   CartComponent,
+  ShopComponent,
 ];
 const MODULES = [
   CommonModule,
@@ -29,6 +32,6 @@ const MODULES = [
 @NgModule({
   imports: [MODULES],
   exports: [COMPONENTS],
-  declarations: [COMPONENTS, FileUploadComponent],
+  declarations: [COMPONENTS],
 })
 export class ComponentsModule {}

@@ -8,12 +8,14 @@
       <p-table [value]="products">
         <ng-template pTemplate="header">
           <tr>
-            <th>Product's Name</th>
+            <th>Name</th>
+            <th>Photo</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
           <tr>
             <td>{{ product.name }}</td>
+            <td>{{ product.image }}</td>
             <button
               pButton
               pRipple

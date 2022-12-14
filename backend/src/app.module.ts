@@ -6,7 +6,7 @@ import { CategoryModule } from './category/category.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Category } from './category/entities/category.entity';
 import { Product } from './product/entities/product.entity';
-import { MulterModule } from '@nestjs/platform-express';
+// import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
@@ -23,7 +23,7 @@ import { MulterModule } from '@nestjs/platform-express';
     }),
     ProductModule,
     CategoryModule,
-    MulterModule.register({ dest: './uploads' }),
+    // MulterModule.register({ dest: './uploads' }),
   ],
   controllers: [AppController],
   providers: [AppService],

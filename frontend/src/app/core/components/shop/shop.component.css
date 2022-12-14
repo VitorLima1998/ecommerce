@@ -1,0 +1,12 @@
+.listshop {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.imgPreview img {
+  width: 18rem;
+  height: 250px;
+  object-fit: cover;
+}

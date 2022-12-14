@@ -8,7 +8,7 @@
       <p-table [value]="products">
         <ng-template pTemplate="header">
           <tr>
-            <th>Product</th>
+            <th colspan="2">Product</th>
             <!--Product (image + name)-->
             <th>Price</th>
             <!--Product (price)-->
@@ -20,8 +20,9 @@
         </ng-template>
         <ng-template pTemplate="body" let-product>
           <tr>
+            <td><img src="{{ product.image }}" alt="" /></td>
             <td>{{ product.name }}</td>
-            <td>{{ product.price }}</td>
+            <td>R${{ product.price }}</td>
             <td>
               <p-inputNumber
                 [showButtons]="true"

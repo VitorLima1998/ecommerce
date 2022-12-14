@@ -1,5 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 import { Repository } from 'typeorm';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
@@ -7,6 +9,9 @@ import { Product } from './entities/product.entity';
 
 @Injectable()
 export class ProductService {
+  findImage(img: string) {
+    return readFileSync(join(process.cwd(), `/files/${img}`));
+  }
   constructor(
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
