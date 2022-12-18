@@ -1,6 +1,6 @@
-<p-toast></p-toast>
+<!-- <p-toast></p-toast> -->
 <div class="container">
-  <form [formGroup]="formProducts" (ngSubmit)="onSubmit()">
+  <form [formGroup]="formProducts" (ngSubmit)="onSubmit()" #formProd="ngForm">
     <div class="form-group">
       <label for="categoryName">Category</label>
 
@@ -19,9 +19,15 @@
         pInputText
         class="form-control"
         id="floatingInput"
+        formControlName="name"
         placeholder="Enter product's name"
+        required
       />
       <label for="categoryName">Name</label>
+
+      <!-- <div *ngIf="name.invalid && formProd.submitted">
+        <p *ngIf="name.errors?.['required']">test</p>
+      </div> -->
     </div>
 
     <div class="form-group" class="form-floating mb-3">
@@ -31,7 +37,9 @@
         pInputText
         class="form-control"
         id="floatingInput"
+        formControlName="description"
         placeholder="Enter product's description"
+        required
       />
       <label for="categoryName">Description</label>
     </div>
@@ -43,7 +51,9 @@
         pInputText
         class="form-control"
         id="floatingInput"
+        formControlName="price"
         placeholder="Enter product's price"
+        required
       />
       <label for="categoryName">Price</label>
     </div>
@@ -84,10 +94,6 @@
           {{ progress }}%
         </div>
       </div>
-      <!--
-      <div *ngIf="message" class="alert alert-secondary" role="alert">
-        {{ message }}
-      </div> -->
     </div>
 
     <div class="btn">
@@ -101,21 +107,4 @@
       ></button>
     </div>
   </form>
-
-  <!-- <form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
 </div>

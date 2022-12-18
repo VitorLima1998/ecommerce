@@ -1,6 +1,11 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Observable } from 'rxjs';
@@ -16,23 +21,15 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./product-insert-dialog.component.css'],
 })
 export class ProductInsertDialogComponent {
-  formProducts = new FormGroup({
-    name: new FormControl('', Validators.required),
-    description: new FormControl(''),
-    price: new FormControl(''),
-    category: new FormControl(''),
-    image: new FormControl(''),
-  });
-
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
     private messageService: MessageService,
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig,
-    private uploadService: FileUploadService
+    private uploadService: FileUploadService,
+    private fb: FormBuilder
   ) {
-    // this.product = new Product(); -> para não inicializar undefined
     this.fileName = '';
   }
 
@@ -46,6 +43,18 @@ export class ProductInsertDialogComponent {
   progress = 0;
   message = '';
   fileInfos?: Observable<any>;
+
+  formProducts = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
+    category: new FormControl('', [Validators.required]),
+    image: new FormControl('', [Validators.required]),
+  });
+
+  get name() {
+    return this.formProducts.get('name')!;
+  }
 
   ngOnInit() {
     this.categoryService.getCategories().subscribe({
@@ -77,7 +86,7 @@ export class ProductInsertDialogComponent {
       this.messageService.add({
         severity: 'warn',
         summary: 'Warn',
-        detail: 'Faça Upload da Imagem',
+        detail: 'No image inserted',
       });
       return;
     }

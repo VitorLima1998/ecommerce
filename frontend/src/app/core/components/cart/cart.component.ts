@@ -14,10 +14,7 @@ export class CartComponent {
 
   cart: any;
 
-  constructor(
-    private productService: ProductService,
-    private messageService: MessageService
-  ) {}
+  constructor(private productService: ProductService) {}
 
   //Inicializa a lista de categories
   ngOnInit() {

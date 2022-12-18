@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { Product } from '../../model/product';
 import { ProductService } from '../../services/product.service';
 
@@ -6,13 +7,17 @@ import { ProductService } from '../../services/product.service';
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css'],
+  providers: [MessageService],
 })
 export class ShopComponent implements OnInit {
   products!: Product[];
 
   cart: Product[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private messageService: MessageService
+  ) {}
 
   // Inicializa a lista de products
   ngOnInit() {
@@ -29,7 +34,12 @@ export class ShopComponent implements OnInit {
   addProd(prod: Product) {
     this.cart.push(prod);
 
-    console.log(prod);
+    this.messageService.add({
+      severity: 'info',
+      summary: 'Product added to cart',
+      detail: '',
+    });
+    // console.log(prod);
     localStorage.setItem('prod', JSON.stringify(this.cart));
   }
 }
