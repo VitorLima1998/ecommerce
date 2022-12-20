@@ -21,14 +21,8 @@ export class CartComponent {
 
   //Inicializa a lista de categories
   ngOnInit() {
-    console.log(this.productService.getProducts());
-    // this.getProducts();
-
     this.cart = localStorage.getItem('prod');
-
     this.products = JSON.parse(this.cart);
-
-    console.log(this.cart);
   }
 
   getProducts() {
@@ -40,8 +34,6 @@ export class CartComponent {
         console.error(error);
       },
     });
-
-    // this.getCategories();
   }
 
   removeProduct(id: string) {
