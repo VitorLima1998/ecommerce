@@ -11,7 +11,10 @@ export class Product {
   description: string;
   @Column()
   price: number;
-  @ManyToOne(() => Category, (category) => category.id)
+  @ManyToOne(() => Category, (category) => category.id, {
+    cascade: true,
+    eager: true,
+  })
   category: Category;
   @Column()
   image: string;

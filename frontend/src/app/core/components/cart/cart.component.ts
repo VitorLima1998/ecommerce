@@ -14,7 +14,10 @@ export class CartComponent {
 
   cart: any;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private messageService: MessageService
+  ) {}
 
   //Inicializa a lista de categories
   ngOnInit() {
@@ -39,5 +42,9 @@ export class CartComponent {
     });
 
     // this.getCategories();
+  }
+
+  removeProduct(id: string) {
+    localStorage.removeItem(id);
   }
 }

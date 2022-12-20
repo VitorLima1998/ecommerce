@@ -8,10 +8,14 @@ import { Product } from '../../model/product';
 })
 export class ToolbarComponent implements OnInit {
   display: boolean = false;
+  countProd!: number;
 
   cart: Product[] = [];
 
   ngOnInit() {
+    const cart = JSON.parse(localStorage.getItem('prod') as any);
+    this.countProd = cart.length;
+
     if (this.getProdStored() !== null) {
       console.log(this.getProdStored());
     } else {

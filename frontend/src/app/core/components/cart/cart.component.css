@@ -24,4 +24,11 @@ td {
 img {
   width: 5rem;
   height: 5rem;
+  border-radius: 0.5rem;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

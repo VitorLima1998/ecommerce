@@ -55,7 +55,13 @@ export class ProductInsertDialogComponent {
   get name() {
     return this.formProducts.get('name')!;
   }
+  get description() {
+    return this.formProducts.get('description')!;
+  }
 
+  get price() {
+    return this.formProducts.get('description')!;
+  }
   ngOnInit() {
     this.categoryService.getCategories().subscribe({
       next: (categories) => {
@@ -82,6 +88,7 @@ export class ProductInsertDialogComponent {
   }
 
   onSubmit() {
+    // if (this.formProducts.valid) {
     if (this.fileName === '') {
       this.messageService.add({
         severity: 'warn',
@@ -100,7 +107,10 @@ export class ProductInsertDialogComponent {
       this.fileName
     );
     this.ref.close(this.product);
-  }
+  } // else {
+  //console.log('erro');
+  // }
+  //}
 
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;

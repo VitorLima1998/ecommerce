@@ -8,9 +8,12 @@
         placeholder="Search"
         aria-label="Search"
       />
-      <button class="btn btn-outline-primary" type="submit">
-        <i class="pi pi-shopping-cart"></i>
+      <button class="btn btn-outline-primary" type="submit" routerLink="cart">
+        <i class="pi pi-shopping-cart"> </i>
       </button>
+      <div class="countProd">
+        {{ countProd }}
+      </div>
     </form>
   </div>
 </nav>

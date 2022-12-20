@@ -8,22 +8,31 @@
       <p-table [value]="products">
         <ng-template pTemplate="header">
           <tr>
-            <th>Name</th>
             <th>Photo</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Action</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
           <tr>
+            <img src="{{ product.image }}" alt="" />
             <td>{{ product.name }}</td>
-            <td>{{ product.image }}</td>
-            <button
-              pButton
-              pRipple
-              type="button"
-              icon="pi pi-trash"
-              class="p-button-rounded p-button-danger p-button-text"
-              (click)="removeProduct(product.id)"
-            ></button>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category.name }}</td>
+            <td>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-button-text"
+                (click)="removeProduct(product.id)"
+              ></button>
+            </td>
           </tr>
         </ng-template>
       </p-table>

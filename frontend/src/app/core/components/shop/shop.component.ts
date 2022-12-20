@@ -21,6 +21,12 @@ export class ShopComponent implements OnInit {
 
   // Inicializa a lista de products
   ngOnInit() {
+    let p = JSON.parse(localStorage.getItem('prod') as any);
+
+    if (p.length > 0) {
+      this.cart = p;
+    }
+
     this.productService.getProducts().subscribe({
       next: (prod) => {
         this.products = prod;
@@ -33,6 +39,8 @@ export class ShopComponent implements OnInit {
 
   addProd(prod: Product) {
     this.cart.push(prod);
+
+    // console.log(prod);
 
     this.messageService.add({
       severity: 'info',
