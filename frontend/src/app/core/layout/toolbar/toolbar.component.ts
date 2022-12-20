@@ -14,12 +14,9 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
     const cart = JSON.parse(localStorage.getItem('prod') as any);
-    // this.countProd = cart.length;
-
-    // console.log(cart.length);
+    this.countProd = cart.length;
 
     if (this.getProdStored() !== null) {
-      // console.log(this.getProdStored());
     } else {
       console.log('cart is empty!');
     }
