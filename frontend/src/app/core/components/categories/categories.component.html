@@ -9,19 +9,22 @@
         <ng-template pTemplate="header">
           <tr>
             <th>Category's Name</th>
+            <th>Action</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-category>
           <tr>
             <td>{{ category.name }}</td>
-            <button
-              pButton
-              pRipple
-              type="button"
-              icon="pi pi-trash"
-              class="p-button-rounded p-button-danger p-button-text"
-              (click)="removeCategory(category.id)"
-            ></button>
+            <td>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-button-text"
+                (click)="removeCategory(category.id)"
+              ></button>
+            </td>
           </tr>
         </ng-template>
       </p-table>

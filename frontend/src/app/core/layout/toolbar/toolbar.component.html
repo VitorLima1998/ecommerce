@@ -1,6 +1,45 @@
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand"></a>
+    <a class="navbar-brand">
+      <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
+        <!-- <ul>
+          <h4>Administrator</h4>
+          <h6>Registration</h6>
+        </ul> -->
+        <div class="d-grid gap-2">
+          <li>Administrator</li>
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            routerLink="products"
+          >
+            Products
+          </button>
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            routerLink="categories"
+          >
+            Categories
+          </button>
+          <li>Users</li>
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            routerLink="shop"
+          >
+            Shop
+          </button>
+        </div>
+      </p-sidebar>
+      <p-button
+        type="button"
+        class="mr-2"
+        (click)="visibleSidebar1 = true"
+        icon="pi pi-arrow-right"
+      ></p-button>
+    </a>
+
     <form class="d-flex" role="search">
       <input
         class="form-control me-2"
@@ -11,6 +50,7 @@
       <button class="btn btn-outline-primary" type="submit" routerLink="cart">
         <i class="pi pi-shopping-cart"> </i>
       </button>
+
       <div class="countProd" *ngIf="countProd > 0">
         {{ countProd }}
       </div>

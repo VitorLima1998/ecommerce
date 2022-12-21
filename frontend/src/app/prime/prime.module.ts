@@ -15,7 +15,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { SpeedDialModule } from 'primeng/speeddial';
-
+import { SidebarModule } from 'primeng/sidebar';
 const MODULES = [
   CommonModule,
   AccordionModule,
@@ -33,6 +33,7 @@ const MODULES = [
   HttpClientModule,
   InputNumberModule,
   SpeedDialModule,
+  SidebarModule,
 ];
 
 @NgModule({

@@ -23,7 +23,7 @@ export class CartComponent {
     this.cart = localStorage.getItem('prod');
     this.products = JSON.parse(this.cart);
     this.subtotal = 0;
-    this.shipping = 10;
+    this.shipping = 0;
     this.total = 0;
     this.update();
   }
@@ -41,11 +41,11 @@ export class CartComponent {
 
   removeProduct(product: Product) {
     console.log(product);
-
     let p = JSON.parse(localStorage.getItem('prod') as any);
-
     this.products = p.filter((p: Product) => {
       p.id !== product.id;
+      console.log(p);
+      return p;
     });
 
     // localStorage.setItem('prod', JSON.stringify(this.products));
@@ -57,5 +57,6 @@ export class CartComponent {
       sum += p.quantity! * p.price!;
     });
     this.subtotal = sum;
+    this.shipping = 10;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../model/product';
+import { TreeNode } from 'primeng/api';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +8,9 @@ import { Product } from '../../model/product';
   styleUrls: ['./toolbar.component.css'],
 })
 export class ToolbarComponent implements OnInit {
+  visibleSidebar1: any;
   display: boolean = false;
   countProd!: number;
-
   cart: Product[] = [];
 
   ngOnInit() {

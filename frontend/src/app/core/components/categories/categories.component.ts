@@ -67,8 +67,8 @@ export class CategoriesComponent implements OnInit {
         });
         this.getCategories();
       },
-      error: (error) => {
-        console.error(error);
+      error: () => {
+        console.error();
       },
     });
   }
