@@ -11,7 +11,7 @@
       <button class="btn btn-outline-primary" type="submit" routerLink="cart">
         <i class="pi pi-shopping-cart"> </i>
       </button>
-      <div class="countProd">
+      <div class="countProd" *ngIf="countProd > 0">
         {{ countProd }}
       </div>
     </form>

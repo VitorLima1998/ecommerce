@@ -22,8 +22,9 @@ export class ShopComponent implements OnInit {
   // Inicializa a lista de products
   ngOnInit() {
     let p = JSON.parse(localStorage.getItem('prod') as any);
+    console.log(p);
 
-    if (p.length > 0) {
+    if (p !== null) {
       this.cart = p;
     }
 
@@ -38,16 +39,14 @@ export class ShopComponent implements OnInit {
   }
 
   addProd(prod: Product) {
+    prod.quantity = 1;
     this.cart.push(prod);
-
-    // console.log(prod);
 
     this.messageService.add({
       severity: 'info',
       summary: 'Product added to cart',
       detail: '',
     });
-    // console.log(prod);
     localStorage.setItem('prod', JSON.stringify(this.cart));
   }
 }

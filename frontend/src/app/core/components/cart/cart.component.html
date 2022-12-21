@@ -8,35 +8,38 @@
       <p-table [value]="products">
         <ng-template pTemplate="header">
           <tr>
-            <th colspan="2">Product</th>
+            <th colspan="2">Product's Name</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
+            <th></th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
           <tr>
             <td><img src="{{ product.image }}" alt="" /></td>
             <td>{{ product.name }}</td>
-            <td>R${{ product.price.toFixed(2) }}</td>
+            <td>{{ product.price | currency }}</td>
             <td>
               <p-inputNumber
                 [showButtons]="true"
                 inputId="minmax-buttons"
                 [min]="1"
                 [max]="100"
+                [(ngModel)]="product.quantity"
+                (ngModelChange)="update()"
               >
               </p-inputNumber>
             </td>
-            <td>R${{ product.price.toFixed(2) }}</td>
+            <td>{{ product.price * product.quantity | currency }}</td>
             <td>
               <button
-                pButton
-                pRipple
                 type="button"
-                icon="pi pi-trash"
-                class="p-button-rounded p-button-danger p-button-text"
-              ></button>
+                class="btn btn-outline-danger"
+                (click)="removeProduct(product)"
+              >
+                <i class="pi pi-trash"></i>
+              </button>
             </td>
           </tr>
         </ng-template>
@@ -51,11 +54,11 @@
 
       <tr>
         <td>Subtotal</td>
-        <td>$ teste</td>
+        <td>{{ subtotal | currency }}</td>
       </tr>
       <tr>
         <td>Shipping</td>
-        <td>$ teste</td>
+        <td>{{ shipping | currency }}</td>
       </tr>
       <tr>
         <button
@@ -72,7 +75,7 @@
       <ng-template pTemplate="footer">
         <tr>
           <h3>TOTAL</h3>
-          <td><i class="pi pi-dollar"></i> teste</td>
+          <td>{{ subtotal + shipping | currency }}</td>
         </tr>
       </ng-template>
     </p-panel>

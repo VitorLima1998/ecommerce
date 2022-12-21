@@ -104,7 +104,8 @@ export class ProductInsertDialogComponent {
       this.formProducts.get('description')?.value as any,
       this.formProducts.get('price')?.value as any,
       this.formProducts.get('category')?.value as any,
-      this.fileName
+      this.fileName,
+      1
     );
     this.ref.close(this.product);
   } // else {

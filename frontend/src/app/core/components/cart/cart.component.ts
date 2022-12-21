@@ -11,18 +11,21 @@ import { ProductService } from '../../services/product.service';
 })
 export class CartComponent {
   products!: Product[];
-
   cart: any;
+  subtotal!: number;
+  shipping!: number;
+  total!: number;
 
-  constructor(
-    private productService: ProductService,
-    private messageService: MessageService
-  ) {}
+  constructor(private productService: ProductService) {}
 
   //Inicializa a lista de categories
   ngOnInit() {
     this.cart = localStorage.getItem('prod');
     this.products = JSON.parse(this.cart);
+    this.subtotal = 0;
+    this.shipping = 10;
+    this.total = 0;
+    this.update();
   }
 
   getProducts() {
@@ -36,7 +39,23 @@ export class CartComponent {
     });
   }
 
-  removeProduct(id: string) {
-    localStorage.removeItem(id);
+  removeProduct(product: Product) {
+    console.log(product);
+
+    let p = JSON.parse(localStorage.getItem('prod') as any);
+
+    this.products = p.filter((p: Product) => {
+      p.id !== product.id;
+    });
+
+    // localStorage.setItem('prod', JSON.stringify(this.products));
+  }
+
+  update() {
+    let sum = 0;
+    this.products.forEach((p) => {
+      sum += p.quantity! * p.price!;
+    });
+    this.subtotal = sum;
   }
 }
