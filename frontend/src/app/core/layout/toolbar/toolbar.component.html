@@ -2,10 +2,6 @@
   <div class="container-fluid">
     <a class="navbar-brand">
       <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
-        <!-- <ul>
-          <h4>Administrator</h4>
-          <h6>Registration</h6>
-        </ul> -->
         <div class="d-grid gap-2">
           <li>Administrator</li>
           <button
@@ -36,7 +32,7 @@
         type="button"
         class="mr-2"
         (click)="visibleSidebar1 = true"
-        icon="pi pi-arrow-right"
+        icon="pi pi-bars"
       ></p-button>
     </a>
 
@@ -47,7 +43,11 @@
         placeholder="Search"
         aria-label="Search"
       />
-      <button class="btn btn-outline-primary" type="submit" routerLink="cart">
+      <button
+        class="btn btn-outline-primary btn-lg"
+        type="submit"
+        routerLink="cart"
+      >
         <i class="pi pi-shopping-cart"> </i>
       </button>
 
