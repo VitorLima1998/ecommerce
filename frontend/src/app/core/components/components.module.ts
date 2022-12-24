@@ -3,17 +3,15 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from 'src/app/material/material.module';
 import { PrimeModule } from 'src/app/prime/prime.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { CategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductInsertDialogComponent } from './product-insert-dialog/product-insert-dialog.component';
 import { CategoryInsertDialogComponent } from './category-insert-dialog/category-insert-dialog.component';
 import { CartComponent } from './cart/cart.component';
-import { FileUploadComponent } from './file-upload/file-upload.component';
 import { ShopComponent } from './shop/shop.component';
 
 const COMPONENTS = [
-  FileUploadComponent,
   CategoriesComponent,
   ProductsComponent,
   ProductInsertDialogComponent,
@@ -29,6 +27,8 @@ const MODULES = [
   ReactiveFormsModule,
   RouterModule,
 ];
+
+const routes: Routes = [{ path: 'shop', component: ShopComponent }];
 @NgModule({
   imports: [MODULES],
   exports: [COMPONENTS],

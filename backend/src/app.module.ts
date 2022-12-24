@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Category } from './category/entities/category.entity';
 import { Product } from './product/entities/product.entity';
 // import { MulterModule } from '@nestjs/platform-express';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { Product } from './product/entities/product.entity';
     }),
     ProductModule,
     CategoryModule,
+    UserModule,
     // MulterModule.register({ dest: './uploads' }),
   ],
   controllers: [AppController],
