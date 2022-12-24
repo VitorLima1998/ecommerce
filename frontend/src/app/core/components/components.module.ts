@@ -28,7 +28,6 @@ const MODULES = [
   RouterModule,
 ];
 
-const routes: Routes = [{ path: 'shop', component: ShopComponent }];
 @NgModule({
   imports: [MODULES],
   exports: [COMPONENTS],

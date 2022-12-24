@@ -1,4 +1,3 @@
-import { CategoryInsertDialogComponent } from './core/components/category-insert-dialog/category-insert-dialog.component';
 import { ProductsComponent } from './core/components/products/products.component';
 import { CategoriesComponent } from './core/components/categories/categories.component';
 import { NgModule } from '@angular/core';
