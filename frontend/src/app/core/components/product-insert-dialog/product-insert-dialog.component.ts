@@ -52,6 +52,11 @@ export class ProductInsertDialogComponent {
     image: new FormControl('', [Validators.required]),
   });
 
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
   get name() {
     return this.formProducts.get('name')!;
   }
