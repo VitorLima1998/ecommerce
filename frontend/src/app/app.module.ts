@@ -23,7 +23,7 @@ const MODULES = [
 ];
 
 @NgModule({
-  imports: [MODULES],
+  imports: [MODULES, BrowserAnimationsModule],
   declarations: [AppComponent, ToolbarComponent],
   bootstrap: [AppComponent],
 })
