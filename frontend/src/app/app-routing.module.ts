@@ -1,3 +1,4 @@
+import { FavoritesComponent } from './core/components/favorites/favorites.component';
 import { ProductsComponent } from './core/components/products/products.component';
 import { CategoriesComponent } from './core/components/categories/categories.component';
 import { NgModule } from '@angular/core';
@@ -40,6 +41,15 @@ const routes: Routes = [
     loadChildren: () =>
       import('./core/components/components.module').then(
         (cart) => cart.ComponentsModule
+      ),
+  },
+
+  {
+    path: 'favorites',
+    component: FavoritesComponent,
+    loadChildren: () =>
+      import('./core/components/components.module').then(
+        (favorites) => favorites.ComponentsModule
       ),
   },
 ];

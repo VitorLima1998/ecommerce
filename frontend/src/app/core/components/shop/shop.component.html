@@ -6,13 +6,19 @@
         <img src="{{ product.image }}" alt="teste" />
       </div>
       <div class="card-body">
-        <h5 class="card-text">
+        <p class="fs-6">
           {{ product.name }}
-        </h5>
-        <p>R$ {{ product.price }}</p>
-        <button class="btn btn-primary" (click)="addProd(product)">
-          Add Cart
-        </button>
+        </p>
+        <p class="fs-3">{{ product.price | currency }}</p>
+
+        <div class="button">
+          <button class="btn btn-outline-danger" (click)="addFav(product)">
+            <i class="pi pi-heart"></i>
+          </button>
+          <button class="btn btn-outline-primary" (click)="addProd(product)">
+            Add Cart
+          </button>
+        </div>
       </div>
     </div>
   </div>

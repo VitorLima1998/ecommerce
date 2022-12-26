@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="favorites">
+    <button type="button" class="btn btn-outline-primary" routerLink="/shop">
+      Back to Shop <i class="pi pi-shopping-bag"></i>
+    </button>
+
+    <p-panel>
+      <ng-template pTemplate="header">
+        <h2>YOUR FAVORITE'S LIST</h2>
+      </ng-template>
+
+      <p-table [value]="products">
+        <ng-template pTemplate="header">
+          <tr>
+            <th colspan="2">Product's Name</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td><img src="{{ product.image }}" alt="" /></td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price | currency }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                (click)="removeProduct(product)"
+              >
+                <i class="pi pi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+  </div>
+</div>

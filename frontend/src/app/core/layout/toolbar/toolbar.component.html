@@ -43,6 +43,19 @@
         placeholder="Search"
         aria-label="Search"
       />
+
+      <button
+        class="btn btn-outline-danger btn-lg"
+        type="submit"
+        routerLink="favorites"
+      >
+        <i class="pi pi-heart"> </i>
+      </button>
+
+      <div class="countFav" *ngIf="countFav > 0">
+        {{ countFav }}
+      </div>
+
       <button
         class="btn btn-outline-primary btn-lg"
         type="submit"

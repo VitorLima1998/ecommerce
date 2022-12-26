@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from './material/material.module';
+// import { MaterialModule } from './material/material.module';
 import { PrimeModule } from './prime/prime.module';
 import { ToolbarComponent } from './core/layout/toolbar/toolbar.component';
 
@@ -17,7 +17,7 @@ const MODULES = [
   BrowserAnimationsModule,
   FormsModule,
   ReactiveFormsModule,
-  MaterialModule,
+  // MaterialModule,
   ComponentsModule,
   HttpClientModule,
 ];

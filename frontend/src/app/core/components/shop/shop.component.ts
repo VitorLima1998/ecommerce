@@ -13,6 +13,7 @@ export class ShopComponent implements OnInit {
   products!: Product[];
 
   cart: Product[] = [];
+  fav: Product[] = [];
 
   constructor(
     private productService: ProductService,
@@ -22,7 +23,7 @@ export class ShopComponent implements OnInit {
   // Inicializa a lista de products
   ngOnInit() {
     let p = JSON.parse(localStorage.getItem('prod') as any);
-    console.log(p);
+    // console.log(p);
 
     if (p !== null) {
       this.cart = p;
@@ -48,5 +49,17 @@ export class ShopComponent implements OnInit {
       detail: '',
     });
     localStorage.setItem('prod', JSON.stringify(this.cart));
+  }
+
+  addFav(fav: Product) {
+    fav.quantity = 1;
+    this.fav.push(fav);
+
+    this.messageService.add({
+      severity: 'info',
+      summary: `Product added to favorite's list `,
+      detail: '',
+    });
+    localStorage.setItem('prod', JSON.stringify(this.fav));
   }
 }

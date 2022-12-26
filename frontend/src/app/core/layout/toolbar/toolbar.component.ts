@@ -11,6 +11,7 @@ export class ToolbarComponent implements OnInit {
   visibleSidebar1: any;
   display: boolean = false;
   countProd!: number;
+  countFav!: number;
   cart: Product[] = [];
 
   ngOnInit() {
@@ -22,6 +23,15 @@ export class ToolbarComponent implements OnInit {
     } else {
       console.log('cart is empty!');
     }
+
+    this.countFav = 0;
+    const fav = JSON.parse(localStorage.getItem('prod') as any);
+    this.countFav = fav.length;
+
+    if (this.getFavStored() !== null) {
+    } else {
+      console.log(`favorite's list is empty!`);
+    }
   }
 
   showDialog() {
@@ -31,5 +41,10 @@ export class ToolbarComponent implements OnInit {
   getProdStored() {
     let p = localStorage.getItem('prod');
     return p;
+  }
+
+  getFavStored() {
+    let f = localStorage.getItem('prod');
+    return f;
   }
 }

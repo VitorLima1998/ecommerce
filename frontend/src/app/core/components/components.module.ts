@@ -10,6 +10,7 @@ import { ProductInsertDialogComponent } from './product-insert-dialog/product-in
 import { CategoryInsertDialogComponent } from './category-insert-dialog/category-insert-dialog.component';
 import { CartComponent } from './cart/cart.component';
 import { ShopComponent } from './shop/shop.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const COMPONENTS = [
   CategoriesComponent,
@@ -18,6 +19,7 @@ const COMPONENTS = [
   CategoryInsertDialogComponent,
   CartComponent,
   ShopComponent,
+  FavoritesComponent,
 ];
 const MODULES = [
   CommonModule,

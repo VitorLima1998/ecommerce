@@ -10,3 +10,16 @@
   height: 250px;
   object-fit: cover;
 }
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+}
