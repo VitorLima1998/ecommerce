@@ -1,9 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  UseGuards,
+  Put,
+} from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
-@Controller('user')
+@Controller('api/user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
@@ -19,16 +29,26 @@ export class UserController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
+    return this.userService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(+id, updateUserDto);
+  @Get(':email')
+  @UseGuards(AuthGuard())
+  findByEmail(@Param('email') email: string) {
+    return this.userService.findByEmail(email);
+  }
+
+  @Put()
+  update(@Body() createUserDto: CreateUserDto) {
+    return this.userService.update(createUserDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
+  async remove(@Param('id') id: string) {
+    await this.userService.remove(id);
+
+    return {
+      message: 'User removed successfully',
+    };
   }
 }
