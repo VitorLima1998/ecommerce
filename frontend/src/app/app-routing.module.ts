@@ -5,33 +5,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './core/components/cart/cart.component';
 import { ShopComponent } from './core/components/shop/shop.component';
+import { UsersComponent } from './core/components/users/users.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
   {
     path: 'shop',
     component: ShopComponent,
     loadChildren: () =>
       import('./core/components/components.module').then(
         (shop) => shop.ComponentsModule
-      ),
-  },
-
-  {
-    path: 'categories',
-    component: CategoriesComponent,
-    loadChildren: () =>
-      import('./core/components/components.module').then(
-        (category) => category.ComponentsModule
-      ),
-  },
-
-  {
-    path: 'products',
-    component: ProductsComponent,
-    loadChildren: () =>
-      import('./core/components/components.module').then(
-        (product) => product.ComponentsModule
       ),
   },
 
@@ -50,6 +32,33 @@ const routes: Routes = [
     loadChildren: () =>
       import('./core/components/components.module').then(
         (favorites) => favorites.ComponentsModule
+      ),
+  },
+
+  {
+    path: 'products',
+    component: ProductsComponent,
+    loadChildren: () =>
+      import('./core/components/components.module').then(
+        (product) => product.ComponentsModule
+      ),
+  },
+
+  {
+    path: 'users',
+    component: UsersComponent,
+    loadChildren: () =>
+      import('./core/components/components.module').then(
+        (user) => user.ComponentsModule
+      ),
+  },
+
+  {
+    path: 'categories',
+    component: CategoriesComponent,
+    loadChildren: () =>
+      import('./core/components/components.module').then(
+        (category) => category.ComponentsModule
       ),
   },
 ];

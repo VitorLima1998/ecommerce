@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit {
     private messageService: MessageService
   ) {}
 
-  // Open Dialog -> chama o Component ProductInsertDialog onde o usuário irá adicionar um dado
+  // Open Dialog -> chama o Component ProductInsertDialog onde o usuário irá adicionar os dados
   show() {
     const ref = this.dialogService.open(ProductInsertDialogComponent, {
       header: 'Add Product',
