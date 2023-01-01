@@ -34,6 +34,8 @@ export class UsersComponent implements OnInit {
   // Inicializa a lista de users
   ngOnInit() {
     this.getUsers();
+
+    console.log(this.users);
   }
 
   // Open Dialog -> chama o Component UserInsertDialog onde insere os dados para criação do usuário

@@ -25,13 +25,9 @@
           </button>
 
           <button
-            class="btn btn-outline-danger"
-            data-bs-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
+            class="btn btn-outline-danger btn-lg"
             id="action"
+            (click)="removeUser(user.id!)"
           >
             <i class="pi pi-trash"></i>
           </button>
