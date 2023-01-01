@@ -23,11 +23,6 @@ import { ProductInsertDialogComponent } from '../product-insert-dialog/product-i
 export class ProductsComponent implements OnInit {
   products!: Product[];
 
-  // Inicializa a lista de products
-  ngOnInit() {
-    this.getProducts();
-  }
-
   constructor(
     public dialogService: DialogService,
     private productService: ProductService,
@@ -35,6 +30,11 @@ export class ProductsComponent implements OnInit {
     public config: DynamicDialogConfig,
     private messageService: MessageService
   ) {}
+
+  // Inicializa a lista de products
+  ngOnInit() {
+    this.getProducts();
+  }
 
   // Open Dialog -> chama o Component ProductInsertDialog onde o usuário irá adicionar os dados
   show() {
@@ -57,6 +57,18 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  // LIST PRODUCT
+  getProducts() {
+    this.productService.getProducts().subscribe({
+      next: (prod) => {
+        this.products = prod;
+      },
+      error: () => {
+        console.error();
+      },
+    });
+  }
+
   // REMOVE PRODUCT
   async removeProduct(id: string) {
     await this.productService.removeProduct(id).subscribe({
@@ -71,20 +83,6 @@ export class ProductsComponent implements OnInit {
         console.error();
       },
     });
-  }
-
-  // LIST PRODUCT
-  getProducts() {
-    this.productService.getProducts().subscribe({
-      next: (prod) => {
-        this.products = prod;
-      },
-      error: () => {
-        console.error();
-      },
-    });
-
-    // this.getProducts();
   }
 
   // UPDATE PRODUCT

@@ -1,1 +1,138 @@
-<p>user-insert-dialog works!</p>
+<!-- <p-toast></p-toast> -->
+<div class="container">
+  <form [formGroup]="formUsers" (ngSubmit)="onSubmit()" #formProd="ngForm">
+    <div class="form-group" class="form-floating mb-3">
+      <input
+        formControlName="name"
+        type="text"
+        pInputText
+        class="form-control"
+        id="floatingInput"
+        formControlName="name"
+        placeholder="Enter user's name"
+        required
+      />
+      <label for="categoryName">Name</label>
+      <span *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <span *ngIf="name.errors?.['required']">* Name is required!</span>
+      </span>
+    </div>
+
+    <div class="form-group" class="form-floating mb-3">
+      <input
+        formControlName="email"
+        type="email"
+        pInputText
+        class="form-control"
+        id="floatingInput"
+        formControlName="email"
+        placeholder="Enter users's email"
+        required
+      />
+      <label for="categoryName">E-mail</label>
+      <span
+        *ngIf="email.invalid && (email.dirty || email.touched)"
+        class="alert"
+      >
+        <span *ngIf="email.errors?.['required']">* E-mail is required!</span>
+      </span>
+    </div>
+
+    <div class="form-group" class="form-floating mb-3">
+      <input
+        formControlName="password"
+        type="password"
+        pInputText
+        class="form-control"
+        id="floatingInput"
+        formControlName="password"
+        placeholder="Enter product's price"
+        required
+      />
+      <label for="categoryName">Password</label>
+
+      <span
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="alert"
+      >
+        <span *ngIf="password.errors?.['required']"
+          >* Password is required!</span
+        >
+      </span>
+    </div>
+
+    <div class="form-group" class="form-floating mb-3">
+      <input
+        formControlName="confPassword"
+        type="password"
+        pInputText
+        class="form-control"
+        id="floatingInput"
+        formControlName="confPassword"
+        placeholder="Enter product's price"
+        required
+      />
+      <label for="categoryName">Confirm Password</label>
+
+      <span
+        *ngIf="
+          confPassword.invalid && (confPassword.dirty || confPassword.touched)
+        "
+        class="alert"
+      >
+        <span *ngIf="confPassword.errors?.['required']"
+          >* Password is required!</span
+        >
+      </span>
+    </div>
+
+    <div class="form-group" class="col-auto">
+      <label for="categoryName" class="form-label"></label>
+      <div class="row">
+        <div class="col-8">
+          <label class="btn btn-default p-0">
+            <input
+              class="form-control"
+              type="file"
+              (change)="selectFile($event)"
+            />
+          </label>
+        </div>
+
+        <div class="col-auto">
+          <button
+            class="btn btn-primary mb-3"
+            [disabled]="!selectedFiles"
+            (click)="upload()"
+          >
+            Upload
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="currentFile" class="progress my-3">
+        <div
+          class="progress-bar progress-bar-info progress-bar-striped"
+          role="progressbar"
+          attr.aria-valuenow="{{ progress }}"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          [ngStyle]="{ width: progress + '%' }"
+        >
+          {{ progress }}%
+        </div>
+      </div>
+    </div>
+
+    <div class="btn">
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-check"
+        class="p-button-rounded p-button-success p-button-text"
+        (click)="onSubmit()"
+      ></button>
+    </div>
+  </form>
+</div>

@@ -63,10 +63,10 @@ export class ProductInsertDialogComponent {
   get description() {
     return this.formProducts.get('description')!;
   }
-
   get price() {
     return this.formProducts.get('description')!;
   }
+
   ngOnInit() {
     this.categoryService.getCategories().subscribe({
       next: (categories) => {

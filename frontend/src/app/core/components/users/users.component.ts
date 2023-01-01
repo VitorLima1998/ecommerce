@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import {
   DialogService,
   DynamicDialogConfig,
@@ -7,40 +7,52 @@ import {
 } from 'primeng/dynamicdialog';
 import { User } from '../../model/user';
 import { UserService } from '../../services/user.service';
+import { UserInsertDialogComponent } from '../user-insert-dialog/user-insert-dialog.component';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
-  providers: [MessageService],
+  providers: [
+    DialogService,
+    DynamicDialogRef,
+    DynamicDialogConfig,
+    MessageService,
+  ],
 })
 export class UsersComponent implements OnInit {
   users!: User[];
 
   constructor(
-    // public dialogService: DialogService,
+    public dialogService: DialogService,
     private userService: UserService,
-    // public ref: DynamicDialogRef,
-    // public config: DynamicDialogConfig,
+    public ref: DynamicDialogRef,
+    public config: DynamicDialogConfig,
     private messageService: MessageService
   ) {}
 
+  // Inicializa a lista de users
   ngOnInit() {
     this.getUsers();
   }
 
-  // REMOVE USER
-  async removeUser(id: string) {
-    await this.userService.removeUser(id).subscribe({
-      next: () => {
-        this.messageService.add({
-          severity: 'info',
-          detail: 'Product removed successfully!',
+  // Open Dialog -> chama o Component UserInsertDialog onde insere os dados para criação do usuário
+  show() {
+    const ref = this.dialogService.open(UserInsertDialogComponent, {
+      header: 'Add User',
+    });
+
+    ref.onClose.subscribe({
+      next: (user: User) => {
+        this.userService.addUser(user).subscribe({
+          next: () => {
+            this.messageService.add({
+              severity: 'success',
+              detail: 'User added successfully!',
+            });
+            this.getUsers();
+          },
         });
-        this.getUsers();
-      },
-      error: () => {
-        console.error();
       },
     });
   }
@@ -55,26 +67,21 @@ export class UsersComponent implements OnInit {
         console.error();
       },
     });
-
-    // this.getProducts();
   }
 
-  update() {
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Success',
-      detail: 'Data Updated',
-    });
-  }
-
-  delete() {
-    this.messageService.add({
-      severity: 'warn',
-      summary: 'Delete',
-      detail: 'Data Deleted',
+  // REMOVE USER
+  async removeUser(id: string) {
+    await this.userService.removeUser(id).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'info',
+          detail: 'User removed successfully!',
+        });
+        this.getUsers();
+      },
+      error: () => {
+        console.error();
+      },
     });
   }
 }
-
-// Open Dialog -> chama o Component UserInsertDialog onde o usuário irá adicionar os dados
-// show() {}
