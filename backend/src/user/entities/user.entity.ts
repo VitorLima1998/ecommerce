@@ -11,6 +11,12 @@ export class User {
   email: string;
   @Column()
   password: string;
+  @Column({ type: 'varchar' })
+  telephone: number;
+  @Column({ type: 'varchar' })
+  cpf: number;
+  @Column()
+  address: string;
   @Column()
   token: string;
   @Column({ nullable: true, type: 'varchar', default: '' })

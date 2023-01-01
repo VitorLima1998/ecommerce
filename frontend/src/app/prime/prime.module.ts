@@ -17,6 +17,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenuModule } from 'primeng/menu';
+import { InputMaskModule } from 'primeng/inputmask';
 
 const MODULES = [
   CommonModule,
@@ -37,6 +38,7 @@ const MODULES = [
   SpeedDialModule,
   SidebarModule,
   MenuModule,
+  InputMaskModule,
 ];
 
 @NgModule({

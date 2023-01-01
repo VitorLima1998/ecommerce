@@ -39,12 +39,16 @@ export class UserInsertDialogComponent {
   progress = 0;
   message = '';
   fileInfos?: Observable<any>;
+  val!: string;
   //-----------------------------------------------------------------------
   formUsers = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     confPassword: new FormControl('', [Validators.required]),
+    telephone: new FormControl('', [Validators.required]),
+    cpf: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
     image: new FormControl('', [Validators.required]),
   });
 
@@ -52,13 +56,22 @@ export class UserInsertDialogComponent {
     return this.formUsers.get('name')!;
   }
   get email() {
-    return this.formUsers.get('name')!;
+    return this.formUsers.get('email')!;
   }
   get password() {
-    return this.formUsers.get('name')!;
+    return this.formUsers.get('password')!;
   }
   get confPassword() {
-    return this.formUsers.get('name')!;
+    return this.formUsers.get('confPassword')!;
+  }
+  get telephone() {
+    return this.formUsers.get('telephone')!;
+  }
+  get cpf() {
+    return this.formUsers.get('cpf')!;
+  }
+  get address() {
+    return this.formUsers.get('address')!;
   }
   //-----------------------------------------------------------------------
   ngOnInit() {
@@ -97,6 +110,9 @@ export class UserInsertDialogComponent {
       this.formUsers.get('email')?.value as any,
       this.formUsers.get('password')?.value as any,
       this.formUsers.get('confPassword')?.value as any,
+      this.formUsers.get('telephone')?.value as any,
+      this.formUsers.get('cpf')?.value as any,
+      this.formUsers.get('address')?.value as any,
       this.fileName
     );
     this.ref.close(this.user);

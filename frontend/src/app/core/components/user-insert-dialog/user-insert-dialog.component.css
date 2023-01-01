@@ -1,0 +1,17 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  justify-content: flex-end;
+}
+
+.btn .btn-outline-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}

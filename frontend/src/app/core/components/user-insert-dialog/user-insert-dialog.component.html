@@ -26,10 +26,10 @@
         class="form-control"
         id="floatingInput"
         formControlName="email"
-        placeholder="Enter users's email"
+        placeholder="Enter user's email"
         required
       />
-      <label for="categoryName">E-mail</label>
+      <label for="email">E-mail</label>
       <span
         *ngIf="email.invalid && (email.dirty || email.touched)"
         class="alert"
@@ -46,10 +46,10 @@
         class="form-control"
         id="floatingInput"
         formControlName="password"
-        placeholder="Enter product's price"
+        placeholder="Enter user's password"
         required
       />
-      <label for="categoryName">Password</label>
+      <label for="password">Password</label>
 
       <span
         *ngIf="password.invalid && (password.dirty || password.touched)"
@@ -68,11 +68,11 @@
         pInputText
         class="form-control"
         id="floatingInput"
+        placeholder="Enter user's password confirmation"
         formControlName="confPassword"
-        placeholder="Enter product's price"
         required
       />
-      <label for="categoryName">Confirm Password</label>
+      <label for="confPassword">Confirm Password</label>
 
       <span
         *ngIf="
@@ -81,36 +81,90 @@
         class="alert"
       >
         <span *ngIf="confPassword.errors?.['required']"
-          >* Password is required!</span
+          >*Confirm Password is required!</span
         >
       </span>
     </div>
 
-    <div class="form-group" class="col-auto">
-      <label for="categoryName" class="form-label"></label>
-      <div class="row">
-        <div class="col-8">
-          <label class="btn btn-default p-0">
-            <input
-              class="form-control"
-              type="file"
-              (change)="selectFile($event)"
-            />
-          </label>
-        </div>
+    <div class="form-group" class="form-floating mb-3">
+      <input
+        formControlName="telephone"
+        type="number"
+        pInputText
+        class="form-control"
+        id="floatingInput"
+        formControlName="telephone"
+        placeholder="Enter user's telephone"
+        required
+      />
+      <label for="telephone">Telephone</label>
+      <span
+        *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
+        class="alert"
+      >
+        <span *ngIf="telephone.errors?.['required']"
+          >* Telephone is required!</span
+        >
+      </span>
+    </div>
 
-        <div class="col-auto">
-          <button
-            class="btn btn-primary mb-3"
-            [disabled]="!selectedFiles"
-            (click)="upload()"
-          >
-            Upload
-          </button>
-        </div>
+    <div class="form-group" class="form-floating mb-3">
+      <input
+        formControlName="cpf"
+        type="number"
+        pInputText
+        class="form-control"
+        id="floatingInput"
+        formControlName="cpf"
+        placeholder="Enter user's CPF"
+        required
+      />
+      <label for="telephone">CPF</label>
+      <span *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="alert">
+        <span *ngIf="cpf.errors?.['required']">* CPF is required!</span>
+      </span>
+    </div>
+
+    <div class="form-group" class="form-floating mb-3">
+      <input
+        formControlName="address"
+        type="text"
+        pInputText
+        class="form-control"
+        id="floatingInput"
+        formControlName="address"
+        placeholder="Enter user's address"
+        required
+      />
+      <label for="address">Address</label>
+      <span
+        *ngIf="address.invalid && (address.dirty || address.touched)"
+        class="alert"
+      >
+        <span *ngIf="address.errors?.['required']">* Address is required!</span>
+      </span>
+    </div>
+
+    <div class="form-group">
+      <div class="d-grid gap-2 d-md-block">
+        <label for="formFile" class="form-label">
+          <input
+            class="form-control"
+            type="file"
+            (change)="selectFile($event)"
+          />
+        </label>
+
+        <button
+          class="btn btn-primary"
+          [disabled]="!selectedFiles"
+          (click)="upload()"
+        >
+          <i class="pi pi-upload"></i>
+        </button>
       </div>
 
-      <div *ngIf="currentFile" class="progress my-3">
+      <div *ngIf="currentFile" class="progress">
         <div
           class="progress-bar progress-bar-info progress-bar-striped"
           role="progressbar"
@@ -125,14 +179,10 @@
     </div>
 
     <div class="btn">
-      <button
-        pButton
-        pRipple
-        type="button"
-        icon="pi pi-check"
-        class="p-button-rounded p-button-success p-button-text"
-        (click)="onSubmit()"
-      ></button>
+      <button class="btn btn-outline-success" (click)="onSubmit()">
+        <span>Save</span>
+        <i class="pi pi-check"></i>
+      </button>
     </div>
   </form>
 </div>
