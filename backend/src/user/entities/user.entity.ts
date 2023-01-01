@@ -15,6 +15,8 @@ export class User {
   token: string;
   @Column({ nullable: true, type: 'varchar', default: '' })
   salt: string;
+  @Column()
+  image: string;
 
   async checkPassword(password: string): Promise<boolean> {
     const hash = await bcrypt.hash(password, this.salt);

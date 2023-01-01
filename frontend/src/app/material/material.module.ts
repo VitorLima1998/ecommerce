@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
 
-const MODULES = [MatInputModule];
+const MODULES = [];
 
 @NgModule({
   declarations: [],
-  imports: [MODULES, CommonModule],
-  exports: [MODULES],
+  imports: [CommonModule],
+  exports: [],
 })
 export class MaterialModule {}

@@ -1,1 +1,37 @@
-<p>users works!</p>
+<div class="container">
+  <div class="button">
+    <button type="button" class="btn btn-outline-primary">
+      Add Product
+      <i class="pi pi-plus"></i>
+    </button>
+  </div>
+
+  <div class="card" style="width: 18rem" *ngFor="let user of users">
+    <img src="{{ user.image }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h3 class="card-title">{{ user.name }}</h3>
+
+      <div class="button">
+        <button
+          class="btn btn-outline-primary btn-lg"
+          data-bs-toggle="collapse"
+          href="#collapseExample"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+          id="info"
+        >
+          <i class="pi pi-info-circle"></i>
+        </button>
+      </div>
+
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <p><span>E-mail: </span> {{ user.email }}</p>
+          <p><span>E-mail: </span> {{ user.email }}</p>
+          <p><span>E-mail: </span> {{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

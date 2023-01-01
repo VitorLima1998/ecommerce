@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { SidebarModule } from 'primeng/sidebar';
+import { MenuModule } from 'primeng/menu';
+
 const MODULES = [
   CommonModule,
   AccordionModule,
@@ -34,6 +36,7 @@ const MODULES = [
   InputNumberModule,
   SpeedDialModule,
   SidebarModule,
+  MenuModule,
 ];
 
 @NgModule({

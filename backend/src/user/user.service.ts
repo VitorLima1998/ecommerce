@@ -12,9 +12,14 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { CredentialsDto } from './dto/credentials.dto';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 @Injectable()
 export class UserService {
+  findImage(img: string) {
+    return readFileSync(join(process.cwd(), `/files/${img}`));
+  }
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,

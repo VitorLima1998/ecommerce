@@ -5,13 +5,19 @@ import {
   Body,
   Param,
   Delete,
-  UseGuards,
   Put,
+  UseInterceptors,
+  UploadedFile,
+  Res,
+  UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
+import { Response } from 'express';
 
 @Controller('api/user')
 export class UserController {
@@ -50,5 +56,31 @@ export class UserController {
     return {
       message: 'User removed successfully',
     };
+  }
+
+  @Post('file')
+  @UseInterceptors(
+    FileInterceptor('file', {
+      storage: diskStorage({
+        destination: './files',
+        filename: (req, file, callback) => {
+          const uniqueSuffix =
+            Date.now() + '-' + Math.round(Math.random() * 1e9);
+          const ext = extname(file.originalname);
+          const filename = `${file.originalname}-${uniqueSuffix}${ext}`;
+          callback(null, filename);
+        },
+      }),
+    }),
+  )
+  uploadFile(@UploadedFile() file: Express.Multer.File) {
+    // console.log(file);
+    return file;
+  }
+
+  @Get('img/:fileProd')
+  findImg(@Param('fileProd') img: string, @Res() response: Response) {
+    const file = this.userService.findImage(img);
+    response.send(file);
   }
 }

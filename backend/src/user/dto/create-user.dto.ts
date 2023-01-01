@@ -6,4 +6,5 @@ export class CreateUserDto {
   confirmPassword: string;
   token: string;
   salt: string;
+  image: string;
 }
