@@ -24,8 +24,7 @@ export class UserInsertDialogComponent {
     private messageService: MessageService,
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig,
-    private uploadService: FileUploadService,
-    private fb: FormBuilder
+    private uploadService: FileUploadService // private formBuilder: FormBuilder
   ) {
     this.fileName = '';
   }
@@ -40,6 +39,7 @@ export class UserInsertDialogComponent {
   message = '';
   fileInfos?: Observable<any>;
   val!: string;
+  // protected aFormGroup!: FormGroup;
   //-----------------------------------------------------------------------
   formUsers = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -50,6 +50,7 @@ export class UserInsertDialogComponent {
     cpf: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
     image: new FormControl('', [Validators.required]),
+    // recaptcha: new FormControl('', [Validators.required]),
   });
 
   get name() {
@@ -73,9 +74,16 @@ export class UserInsertDialogComponent {
   get address() {
     return this.formUsers.get('address')!;
   }
+  // get recaptcha() {
+  //   return this.formUsers.get('recaptcha')!;
+  // }
+
   //-----------------------------------------------------------------------
   ngOnInit() {
     this.fileInfos = this.uploadService.getFiles();
+    // this.aFormGroup = this.formBuilder.group({
+    //   recaptcha: ['', Validators.required],
+    // });
   }
   //-----------------------------------------------------------------------
   removeUser(id: string) {
