@@ -36,5 +36,13 @@ const MODULES = [
   imports: [MODULES],
   declarations: [AppComponent, ToolbarComponent],
   bootstrap: [AppComponent],
+  // providers: [
+  //   {
+  //     provide: RECAPTCHA_SETTINGS,
+  //     useValue: {
+  //       siteKey: environment.recaptcha.siteKey,
+  //     } as RecaptchaSettings,
+  //   },
+  // ],
 })
 export class AppModule {}
